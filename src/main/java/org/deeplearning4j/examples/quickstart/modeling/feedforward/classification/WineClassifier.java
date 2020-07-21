@@ -34,11 +34,9 @@ public class WineClassifier {
     public static void main(String[] args) throws Exception {
         int BATCH_SIZE = 130;
         int SEED = 123;
-//        int EPOCHS = 13;
-//        int ITERATIONS = 21;
 
-        double LEARNING_RATE = 0.005; //Epsilon
-        double MOMENTUM = 0.9; //Alpha
+        double LEARNING_RATE = 0.5; //Epsilon
+        double MOMENTUM = 1.0; //Alpha
 
         int INPUT_NEURONS = 13;
         int OUTPUT_NEURONS = 3;
@@ -80,7 +78,6 @@ public class WineClassifier {
                 .activation(Activation.SOFTMAX)
                 .build())
             .build();
-//            .pretrain(false).backprop(true).build();
 
         MultiLayerNetwork model = new MultiLayerNetwork(conf);
         model.init();
