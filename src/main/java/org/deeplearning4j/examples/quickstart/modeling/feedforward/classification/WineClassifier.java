@@ -36,18 +36,24 @@ public class WineClassifier {
         int BATCH_SIZE = 130;
         int SEED = 123;
 
+        //LEARNING RATE
         Scanner learn_rate_user_input = new Scanner(System.in);
         System.out.println("Learning Rate: ");
         double LEARNING_RATE = learn_rate_user_input.nextDouble(); //Epsilon
 
+        //MOMENTUM
         Scanner momentum_user_input = new Scanner(System.in);
         System.out.println("Momentum: ");
         double MOMENTUM = momentum_user_input.nextDouble(); //Alpha
-        momentum_user_input.close();
+
+        //HIDDEN NEURONS
+        Scanner hidden_neurons_user_input = new Scanner(System.in);
+        System.out.println("Hidden Neurons: ");
+        int HIDDEN_NEURONS = hidden_neurons_user_input.nextInt(); //Alpha
+        hidden_neurons_user_input.close();
 
         int INPUT_NEURONS = 13;
         int OUTPUT_NEURONS = 3;
-        int HIDDEN_NEURONS = 6;
 
         dataLocalPath = DownloaderUtility.CLASSIFICATIONDATA.Download();
         RecordReader rr = new CSVRecordReader();
