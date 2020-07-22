@@ -39,18 +39,18 @@ public class Visuals {
         double MOMENTUM = .9; //Alpha
 
 
-        int HIDDEN_NEURONS = 2;
+        int HIDDEN_NEURONS = 6;
         int INPUT_NEURONS = 2;
-        int OUTPUT_NEURONS = 3;
+        int OUTPUT_NEURONS = 2;
 
         dataLocalPath = DownloaderUtility.CLASSIFICATIONDATA.Download();
         RecordReader rr = new CSVRecordReader();
         rr.initialize(new FileSplit(new File(dataLocalPath, "wine_train_visuals.csv")));
-        DataSetIterator TRAIN_DATA = new RecordReaderDataSetIterator(rr, BATCH_SIZE, 0, 3);
+        DataSetIterator TRAIN_DATA = new RecordReaderDataSetIterator(rr, BATCH_SIZE, 0, 2);
 
         RecordReader rrTest = new CSVRecordReader();
         rrTest.initialize(new FileSplit(new File(dataLocalPath, "wine_eval_visuals.csv")));
-        DataSetIterator TEST_DATA = new RecordReaderDataSetIterator(rrTest, BATCH_SIZE, 0, 3);
+        DataSetIterator TEST_DATA = new RecordReaderDataSetIterator(rrTest, BATCH_SIZE, 0, 2);
 
         DataSet TRAIN_DATA_SET = TRAIN_DATA.next();
         TRAIN_DATA_SET.shuffle();
@@ -84,12 +84,10 @@ public class Visuals {
         model.init();
         model.setListeners(new ScoreIterationListener(10));
 
-        //NUMBER OF ITERATIONS
-
         for(int i=0; i<1000; i++ ) { model.fit(TRAIN_DATA_SET);
         }
         System.out.println("Test model....");
-        Evaluation eval = new Evaluation(3);
+        Evaluation eval = new Evaluation(2);
         INDArray output = model.output(TEST_DATA_SET.getFeatures());
         eval.eval(TEST_DATA_SET.getLabels(), output);
         System.out.println(eval.stats());

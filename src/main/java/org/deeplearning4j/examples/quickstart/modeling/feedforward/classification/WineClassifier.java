@@ -6,7 +6,6 @@ import org.datavec.api.split.FileSplit;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.datasets.datavec.RecordReaderDataSetIterator;
 import org.deeplearning4j.examples.utils.DownloaderUtility;
-import org.deeplearning4j.examples.utils.PlotUtil;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.layers.DenseLayer;
@@ -29,33 +28,48 @@ import java.util.Scanner;
 
 public class WineClassifier {
     public static String dataLocalPath;
-    public static boolean visualize = true;
 
     public static void main(String[] args) throws Exception {
         int BATCH_SIZE = 130;
         int SEED = 123;
 
+        System.out.println("Welcome to an interactive Neural Network where you can see how changing 4 different values can impact the accuracy of your network. This neural ");
+        System.out.println("network classifies wine from three different cultivars in Italy, taking into consideration 13 different attributes of each wine.");
+        System.out.println("\nThe 13 attributes are: Alcohol, Malic Acid, Ash, Alcalinity of ash, Magnesium, Total phenols, Flavanoids, Nonflavanoid phenols, Proanthocyanins, ");
+        System.out.println("Color intensity, Hue, OD280/OD315 of diluted wines, and Proline.");
+        System.out.println("\n\nThis data was provided courtesy of the University of California, Irvine, Center for Machine Learning and Intelligent Systems.");
+
         //LEARNING RATE
-        System.out.println("The Learning Rate controls how much to change the model in response to the estimated error each time the model weights are updated. " +
-                "The value for learning rate should be a positive decimal value between 0 and 1 ");
+        System.out.println("\n\nThe Learning Rate controls how much to change the model in response to the estimated error each time the model weights are updated. " +
+                "The value for");
+        System.out.println("learning rate should be a positive decimal value between 0 and 1.");
         Scanner learn_rate_user_input = new Scanner(System.in);
-        System.out.println("Learning Rate: ");
+        System.out.print("Learning Rate: ");
         double LEARNING_RATE = learn_rate_user_input.nextDouble(); //Epsilon
 
         //MOMENTUM
         System.out.println("\nThe basic idea of momentum in machine learning is to increase the speed of training. " +
                 "The value for momentum should be a positive decimal value between 0 and 1.");
         Scanner momentum_user_input = new Scanner(System.in);
-        System.out.println("Momentum: ");
+        System.out.print("Momentum: ");
         double MOMENTUM = momentum_user_input.nextDouble(); //Alpha
 
         //HIDDEN NEURONS
-        System.out.println("\nThe number of hidden neurons should be between the number of input neurons and number of output neurons." +
-                "In this case, please choose a value between 3 and 13.");
+        System.out.println("\nAn easy rule of thumb for how many input neurons your network should have is to have the number be somewhere between" +
+                "the number of input neurons");
+        System.out.println("and the number of output neurons, in this case some number between 3 and 13.");
+        System.out.println("However, the number of hidden neurons can be more ot less than either of those values. Only requirement is that it must be a positive integer. ");
         Scanner hidden_neurons_user_input = new Scanner(System.in);
-        System.out.println("Hidden Neurons: ");
-        int HIDDEN_NEURONS = hidden_neurons_user_input.nextInt(); //Alpha
-        hidden_neurons_user_input.close();
+        System.out.print("Hidden Neurons: ");
+        int HIDDEN_NEURONS = hidden_neurons_user_input.nextInt();
+
+        //ITERATIONS
+        System.out.println("\nIterations is the number of batches needed to complete one epoch.");
+        System.out.println("One Epoch is when an ENTIRE dataset is passed forward and backward through the neural network only ONCE.");
+        Scanner iterations_user_input = new Scanner(System.in);
+        System.out.print("Iterations: ");
+        int ITERATIONS = iterations_user_input.nextInt();
+        iterations_user_input.close();
 
         int INPUT_NEURONS = 13;
         int OUTPUT_NEURONS = 3;
@@ -103,7 +117,7 @@ public class WineClassifier {
 
         //NUMBER OF ITERATIONS
 
-        for(int i=0; i<1001; i++ ) { model.fit(TRAIN_DATA_SET);
+        for(int i=0; i<ITERATIONS; i++ ) { model.fit(TRAIN_DATA_SET);
         }
         System.out.println("Test model....");
         Evaluation eval = new Evaluation(3);
