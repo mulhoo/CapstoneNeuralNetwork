@@ -25,7 +25,6 @@ import org.nd4j.linalg.learning.config.Nesterovs;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 
 import java.io.File;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Visuals {
@@ -33,14 +32,14 @@ public class Visuals {
     public static boolean visualize = true;
 
     public static void main(String[] args) throws Exception {
-        int BATCH_SIZE = 130;
-        int SEED = 123;
+        int BATCH_SIZE = 98;
+        int SEED = 50;
 
         double LEARNING_RATE = .5; //Epsilon
         double MOMENTUM = .9; //Alpha
 
 
-        int HIDDEN_NEURONS = 6;
+        int HIDDEN_NEURONS = 2;
         int INPUT_NEURONS = 2;
         int OUTPUT_NEURONS = 3;
 
@@ -87,7 +86,7 @@ public class Visuals {
 
         //NUMBER OF ITERATIONS
 
-        for(int i=0; i<100; i++ ) { model.fit(TRAIN_DATA_SET);
+        for(int i=0; i<1000; i++ ) { model.fit(TRAIN_DATA_SET);
         }
         System.out.println("Test model....");
         Evaluation eval = new Evaluation(3);
@@ -108,12 +107,12 @@ public class Visuals {
 
             int nPointsPerAxis = 100;
 
-            INDArray allXYPoints = PlotUtil.generatePointsOnGraph(xMin, xMax, yMin, yMax, nPointsPerAxis);
+            INDArray allXYZPoints = PlotUtil.generatePointsOnGraph(xMin, xMax, yMin, yMax, nPointsPerAxis);
 
-            PlotUtil.plotTrainingData(model, TRAIN_DATA_SET, allXYPoints, nPointsPerAxis);
+            PlotUtil.plotTrainingData(model, TRAIN_DATA_SET, allXYZPoints, nPointsPerAxis);
             TimeUnit.SECONDS.sleep(3);
 
-            PlotUtil.plotTestData(model, TEST_DATA_SET, allXYPoints, nPointsPerAxis);
+            PlotUtil.plotTestData(model, TEST_DATA_SET, allXYZPoints, nPointsPerAxis);
         }
     }
 }

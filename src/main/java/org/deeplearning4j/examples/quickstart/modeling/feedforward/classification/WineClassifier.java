@@ -52,7 +52,6 @@ public class WineClassifier {
         //HIDDEN NEURONS
         System.out.println("\nThe number of hidden neurons should be between the number of input neurons and number of output neurons." +
                 "In this case, please choose a value between 3 and 13.");
-        System.out.println("\n ");
         Scanner hidden_neurons_user_input = new Scanner(System.in);
         System.out.println("Hidden Neurons: ");
         int HIDDEN_NEURONS = hidden_neurons_user_input.nextInt(); //Alpha
