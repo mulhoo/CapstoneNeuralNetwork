@@ -25,6 +25,7 @@ import org.nd4j.linalg.learning.config.Nesterovs;
 import org.nd4j.linalg.lossfunctions.LossFunctions.LossFunction;
 
 import java.io.File;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class WineClassifier {
@@ -35,8 +36,14 @@ public class WineClassifier {
         int BATCH_SIZE = 130;
         int SEED = 123;
 
-        double LEARNING_RATE = 0.5; //Epsilon
-        double MOMENTUM = 1.0; //Alpha
+        Scanner learn_rate_user_input = new Scanner(System.in);
+        System.out.println("Learning Rate: ");
+        double LEARNING_RATE = learn_rate_user_input.nextDouble(); //Epsilon
+
+        Scanner momentum_user_input = new Scanner(System.in);
+        System.out.println("Momentum: ");
+        double MOMENTUM = momentum_user_input.nextDouble(); //Alpha
+        momentum_user_input.close();
 
         int INPUT_NEURONS = 13;
         int OUTPUT_NEURONS = 3;
