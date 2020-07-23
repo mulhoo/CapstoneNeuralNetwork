@@ -62,7 +62,7 @@ public class WineClassifier {
         System.out.println("\nAn easy rule of thumb for how many input neurons your network should have is to have the number be somewhere between" +
                 "the number of input neurons");
         System.out.println("and the number of output neurons, in this case some number between 3 and 13.");
-        System.out.println("However, the number of hidden neurons can be more ot less than either of those values. Only requirement is that it must be a positive integer. ");
+        System.out.println("However, the number of hidden neurons can be more or less than either of those values. Only requirement is that it must be a positive integer. ");
         Scanner hidden_neurons_user_input = new Scanner(System.in);
         System.out.print("Hidden Neurons: ");
         int HIDDEN_NEURONS = hidden_neurons_user_input.nextInt();
