@@ -37,7 +37,11 @@ public class WineClassifier {
         System.out.println("network classifies wine from three different cultivars in Italy, taking into consideration 13 different attributes of each wine.");
         System.out.println("\nThe 13 attributes are: Alcohol, Malic Acid, Ash, Alcalinity of ash, Magnesium, Total phenols, Flavanoids, Nonflavanoid phenols, Proanthocyanins, ");
         System.out.println("Color intensity, Hue, OD280/OD315 of diluted wines, and Proline.");
-        System.out.println("\n\nThis data was provided courtesy of the University of California, Irvine, Center for Machine Learning and Intelligent Systems.");
+
+        System.out.println("\n\n#############################################################################################################################");
+        System.out.println("This data was provided courtesy of the University of California, Irvine, Center for Machine Learning and Intelligent Systems.");
+        System.out.println("#############################################################################################################################");
+
 
         //LEARNING RATE
         System.out.println("\n\nThe Learning Rate controls how much to change the model in response to the estimated error each time the model weights are updated. " +

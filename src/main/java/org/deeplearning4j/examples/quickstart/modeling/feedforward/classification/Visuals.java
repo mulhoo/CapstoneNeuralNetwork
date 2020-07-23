@@ -32,7 +32,7 @@ public class Visuals {
     public static boolean visualize = true;
 
     public static void main(String[] args) throws Exception {
-        int BATCH_SIZE = 98;
+        int BATCH_SIZE = 97;
         int SEED = 50;
 
         double LEARNING_RATE = .5; //Epsilon
