@@ -17,7 +17,7 @@ Citation:
 Dua, D. and Graff, C. (2019). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.
 
 
-###**_REQUIRED FOR USE_**
+### **_REQUIRED FOR USE_**
 Java - https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
 Apache Maven - $ brew install maven
 IntelliJ (community version works fine) - https://www.jetbrains.com/idea/download/#section=mac
@@ -25,7 +25,7 @@ IntelliJ (community version works fine) - https://www.jetbrains.com/idea/downloa
 **You will need to move the dl4j-examples-data folder to your main user folder
 
 
-###**_RESOURCES_**
+### **_RESOURCES_**
 Fundamentals of Neural Networks: 
 https://www.wandb.com/articles/fundamentals-of-neural-networks
 
